@@ -1,0 +1,120 @@
+package arm.node;
+
+@:keep class Proximity extends armory.logicnode.LogicTree {
+
+	var functionNodes:Map<String, armory.logicnode.FunctionNode>;
+
+	var functionOutputNodes:Map<String, armory.logicnode.FunctionOutputNode>;
+
+	public function new() {
+		super();
+		name = "Proximity";
+		this.functionNodes = new Map();
+		this.functionOutputNodes = new Map();
+		notifyOnAdd(add);
+	}
+
+	override public function add() {
+		var _SetProperty = new armory.logicnode.SetPropertyNode(this);
+		var _OnInit_001 = new armory.logicnode.OnInitNode(this);
+		_OnInit_001.addOutputs([_SetProperty]);
+		_SetProperty.addInput(_OnInit_001, 0);
+		_SetProperty.addInput(new armory.logicnode.ObjectNode(this, "player"), 0);
+		_SetProperty.addInput(new armory.logicnode.StringNode(this, "hasKey"), 0);
+		var _Boolean = new armory.logicnode.BooleanNode(this);
+		_Boolean.addInput(new armory.logicnode.BooleanNode(this, false), 0);
+		_Boolean.addOutputs([_SetProperty]);
+		_SetProperty.addInput(_Boolean, 0);
+		_SetProperty.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _TranslateObject_001 = new armory.logicnode.TranslateObjectNode(this);
+		var _OnKeyboard_001 = new armory.logicnode.OnKeyboardNode(this);
+		_OnKeyboard_001.property0 = "Down";
+		_OnKeyboard_001.property1 = "a";
+		_OnKeyboard_001.addOutputs([_TranslateObject_001]);
+		_TranslateObject_001.addInput(_OnKeyboard_001, 0);
+		_TranslateObject_001.addInput(new armory.logicnode.ObjectNode(this, "player"), 0);
+		_TranslateObject_001.addInput(new armory.logicnode.VectorNode(this, 0.0, -0.20000000298023224, 0.0), 0);
+		_TranslateObject_001.addInput(new armory.logicnode.BooleanNode(this, false), 0);
+		_TranslateObject_001.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _TranslateObject = new armory.logicnode.TranslateObjectNode(this);
+		var _OnKeyboard = new armory.logicnode.OnKeyboardNode(this);
+		_OnKeyboard.property0 = "Down";
+		_OnKeyboard.property1 = "d";
+		_OnKeyboard.addOutputs([_TranslateObject]);
+		_TranslateObject.addInput(_OnKeyboard, 0);
+		_TranslateObject.addInput(new armory.logicnode.ObjectNode(this, "player"), 0);
+		_TranslateObject.addInput(new armory.logicnode.VectorNode(this, 0.0, 0.19999998807907104, 0.0), 0);
+		_TranslateObject.addInput(new armory.logicnode.BooleanNode(this, false), 0);
+		_TranslateObject.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _PauseAction = new armory.logicnode.PauseActionNode(this);
+		var _OnInit = new armory.logicnode.OnInitNode(this);
+		_OnInit.addOutputs([_PauseAction]);
+		_PauseAction.addInput(_OnInit, 0);
+		_PauseAction.addInput(new armory.logicnode.ObjectNode(this, "blueCube"), 0);
+		_PauseAction.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _SendEvent = new armory.logicnode.SendEventNode(this);
+		var _IsTrue_001 = new armory.logicnode.IsTrueNode(this);
+		var _OnVolumeTrigger = new armory.logicnode.OnVolumeTriggerNode(this);
+		_OnVolumeTrigger.property0 = "Enter";
+		_OnVolumeTrigger.addInput(new armory.logicnode.ObjectNode(this, "player"), 0);
+		_OnVolumeTrigger.addInput(new armory.logicnode.ObjectNode(this, "blueCube"), 0);
+		_OnVolumeTrigger.addOutputs([_IsTrue_001]);
+		_IsTrue_001.addInput(_OnVolumeTrigger, 0);
+		var _GetProperty = new armory.logicnode.GetPropertyNode(this);
+		_GetProperty.addInput(new armory.logicnode.ObjectNode(this, "player"), 0);
+		_GetProperty.addInput(new armory.logicnode.StringNode(this, "hasKey"), 0);
+		_GetProperty.addOutputs([_IsTrue_001]);
+		_GetProperty.addOutputs([new armory.logicnode.StringNode(this, "")]);
+		_IsTrue_001.addInput(_GetProperty, 0);
+		_IsTrue_001.addOutputs([_SendEvent]);
+		_SendEvent.addInput(_IsTrue_001, 0);
+		_SendEvent.addInput(new armory.logicnode.StringNode(this, "near blue"), 0);
+		_SendEvent.addInput(new armory.logicnode.ObjectNode(this, ""), 0);
+		_SendEvent.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _PauseAction_001 = new armory.logicnode.PauseActionNode(this);
+		var _PlayAction = new armory.logicnode.PlayActionNode(this);
+		var _OnEvent = new armory.logicnode.OnEventNode(this);
+		_OnEvent.property0 = "near blue";
+		_OnEvent.addOutputs([_PlayAction]);
+		_PlayAction.addInput(_OnEvent, 0);
+		_PlayAction.addInput(new armory.logicnode.ObjectNode(this, "blueCube"), 0);
+		_PlayAction.addInput(new armory.logicnode.StringNode(this, "jump"), 0);
+		_PlayAction.addInput(new armory.logicnode.FloatNode(this, 0.20000000298023224), 0);
+		_PlayAction.addOutputs([new armory.logicnode.NullNode(this)]);
+		_PlayAction.addOutputs([_PauseAction_001]);
+		_PauseAction_001.addInput(_PlayAction, 1);
+		_PauseAction_001.addInput(new armory.logicnode.ObjectNode(this, "blueCube"), 0);
+		_PauseAction_001.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _RotateObject = new armory.logicnode.RotateObjectNode(this);
+		var _SetProperty_001 = new armory.logicnode.SetPropertyNode(this);
+		var _IsTrue = new armory.logicnode.IsTrueNode(this);
+		var _OnUpdate = new armory.logicnode.OnUpdateNode(this);
+		_OnUpdate.property0 = "Update";
+		_OnUpdate.addOutputs([_IsTrue]);
+		_IsTrue.addInput(_OnUpdate, 0);
+		var _Math = new armory.logicnode.MathNode(this);
+		_Math.property0 = "Less Than";
+		_Math.property1 = "false";
+		var _GetDistance = new armory.logicnode.GetDistanceNode(this);
+		_GetDistance.addInput(new armory.logicnode.ObjectNode(this, "player"), 0);
+		_GetDistance.addInput(new armory.logicnode.ObjectNode(this, "Suzanne"), 0);
+		_GetDistance.addOutputs([_Math]);
+		_Math.addInput(_GetDistance, 0);
+		_Math.addInput(new armory.logicnode.FloatNode(this, 2.0), 0);
+		_Math.addOutputs([_IsTrue]);
+		_IsTrue.addInput(_Math, 0);
+		_IsTrue.addOutputs([_SetProperty_001]);
+		_SetProperty_001.addInput(_IsTrue, 0);
+		_SetProperty_001.addInput(new armory.logicnode.ObjectNode(this, "player"), 0);
+		_SetProperty_001.addInput(new armory.logicnode.StringNode(this, "hasKey"), 0);
+		var _Boolean_001 = new armory.logicnode.BooleanNode(this);
+		_Boolean_001.addInput(new armory.logicnode.BooleanNode(this, true), 0);
+		_Boolean_001.addOutputs([_SetProperty_001]);
+		_SetProperty_001.addInput(_Boolean_001, 0);
+		_SetProperty_001.addOutputs([_RotateObject]);
+		_RotateObject.addInput(_SetProperty_001, 0);
+		_RotateObject.addInput(new armory.logicnode.ObjectNode(this, "Suzanne"), 0);
+		_RotateObject.addInput(new armory.logicnode.VectorNode(this, 0.0, 0.0, 10.0), 0);
+		_RotateObject.addOutputs([new armory.logicnode.NullNode(this)]);
+	}
+}

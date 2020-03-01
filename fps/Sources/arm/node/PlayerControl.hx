@@ -1,0 +1,128 @@
+package arm.node;
+
+@:keep class PlayerControl extends armory.logicnode.LogicTree {
+
+	var functionNodes:Map<String, armory.logicnode.FunctionNode>;
+
+	var functionOutputNodes:Map<String, armory.logicnode.FunctionOutputNode>;
+
+	public function new() {
+		super();
+		this.functionNodes = new Map();
+		this.functionOutputNodes = new Map();
+		notifyOnAdd(add);
+	}
+
+	override public function add() {
+		var _RotateObject_001 = new armory.logicnode.RotateObjectNode(this);
+		var _RotateObject = new armory.logicnode.RotateObjectNode(this);
+		var _OnUpdate = new armory.logicnode.OnUpdateNode(this);
+		_OnUpdate.property0 = "Update";
+		_OnUpdate.addOutputs([_RotateObject]);
+		_RotateObject.addInput(_OnUpdate, 0);
+		_RotateObject.addInput(new armory.logicnode.ObjectNode(this, "player"), 0);
+		var _Vector = new armory.logicnode.VectorNode(this);
+		_Vector.addInput(new armory.logicnode.FloatNode(this, 0.0), 0);
+		_Vector.addInput(new armory.logicnode.FloatNode(this, 0.0), 0);
+		var _Math = new armory.logicnode.MathNode(this);
+		_Math.property0 = "Multiply";
+		_Math.property1 = "false";
+		var _SeparateXYZ = new armory.logicnode.SeparateVectorNode(this);
+		var _MouseCoords = new armory.logicnode.MouseCoordsNode(this);
+		_MouseCoords.addOutputs([new armory.logicnode.VectorNode(this, 0.0, 0.0, 0.0)]);
+		_MouseCoords.addOutputs([_SeparateXYZ]);
+		_MouseCoords.addOutputs([new armory.logicnode.IntegerNode(this, 0)]);
+		_SeparateXYZ.addInput(_MouseCoords, 1);
+		_SeparateXYZ.addOutputs([_Math]);
+		var _Math_001 = new armory.logicnode.MathNode(this);
+		_Math_001.property0 = "Multiply";
+		_Math_001.property1 = "false";
+		_Math_001.addInput(_SeparateXYZ, 1);
+		_Math_001.addInput(new armory.logicnode.FloatNode(this, -0.004999999888241291), 0);
+		var _Vector_001 = new armory.logicnode.VectorNode(this);
+		_Vector_001.addInput(_Math_001, 0);
+		_Vector_001.addInput(new armory.logicnode.FloatNode(this, 0.0), 0);
+		_Vector_001.addInput(new armory.logicnode.FloatNode(this, 0.0), 0);
+		_Vector_001.addOutputs([_RotateObject_001]);
+		_Math_001.addOutputs([_Vector_001]);
+		_SeparateXYZ.addOutputs([_Math_001]);
+		_SeparateXYZ.addOutputs([new armory.logicnode.FloatNode(this, 0.0)]);
+		_Math.addInput(_SeparateXYZ, 0);
+		_Math.addInput(new armory.logicnode.FloatNode(this, -0.009999999776482582), 0);
+		_Math.addOutputs([_Vector]);
+		_Vector.addInput(_Math, 0);
+		_Vector.addOutputs([_RotateObject]);
+		_RotateObject.addInput(_Vector, 0);
+		_RotateObject.addOutputs([_RotateObject_001]);
+		_RotateObject_001.addInput(_RotateObject, 0);
+		_RotateObject_001.addInput(new armory.logicnode.ObjectNode(this, "head"), 0);
+		_RotateObject_001.addInput(_Vector_001, 0);
+		_RotateObject_001.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _SetMouseLock = new armory.logicnode.SetMouseLockNode(this);
+		var _OnInit = new armory.logicnode.OnInitNode(this);
+		_OnInit.addOutputs([_SetMouseLock]);
+		_SetMouseLock.addInput(_OnInit, 0);
+		_SetMouseLock.addInput(new armory.logicnode.BooleanNode(this, false), 0);
+		_SetMouseLock.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _Shutdown = new armory.logicnode.ShutdownNode(this);
+		var _OnKeyboard_001 = new armory.logicnode.OnKeyboardNode(this);
+		_OnKeyboard_001.property0 = "Down";
+		_OnKeyboard_001.property1 = "q";
+		_OnKeyboard_001.addOutputs([_Shutdown]);
+		_Shutdown.addInput(_OnKeyboard_001, 0);
+		_Shutdown.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _TranslateObject = new armory.logicnode.TranslateObjectNode(this);
+		var _OnKeyboard = new armory.logicnode.OnKeyboardNode(this);
+		_OnKeyboard.property0 = "Down";
+		_OnKeyboard.property1 = "w";
+		_OnKeyboard.addOutputs([_TranslateObject]);
+		_TranslateObject.addInput(_OnKeyboard, 0);
+		_TranslateObject.addInput(new armory.logicnode.ObjectNode(this, "player"), 0);
+		_TranslateObject.addInput(new armory.logicnode.VectorNode(this, 0.0, 0.09999999403953552, 0.0), 0);
+		_TranslateObject.addInput(new armory.logicnode.BooleanNode(this, true), 0);
+		_TranslateObject.addOutputs([new armory.logicnode.NullNode(this)]);
+		var _PlaySpeaker = new armory.logicnode.PlaySoundNode(this);
+		var _ApplyImpulse = new armory.logicnode.ApplyImpulseNode(this);
+		var _SpawnObject = new armory.logicnode.SpawnObjectNode(this);
+		var _Mouse = new armory.logicnode.MergedMouseNode(this);
+		_Mouse.property0 = "Released";
+		_Mouse.property1 = "left";
+		_Mouse.addOutputs([_SpawnObject]);
+		_Mouse.addOutputs([new armory.logicnode.BooleanNode(this, false)]);
+		_SpawnObject.addInput(_Mouse, 0);
+		_SpawnObject.addInput(new armory.logicnode.ObjectNode(this, "bullet"), 0);
+		var _Transform = new armory.logicnode.TransformNode(this);
+		var _SeparateTransform = new armory.logicnode.SeparateTransformNode(this);
+		var _GetTransform = new armory.logicnode.GetTransformNode(this);
+		_GetTransform.addInput(new armory.logicnode.ObjectNode(this, "gun"), 0);
+		_GetTransform.addOutputs([_SeparateTransform]);
+		_SeparateTransform.addInput(_GetTransform, 0);
+		_SeparateTransform.addOutputs([_Transform]);
+		_SeparateTransform.addOutputs([_Transform]);
+		_SeparateTransform.addOutputs([new armory.logicnode.VectorNode(this, 0.0, 0.0, 0.0)]);
+		_Transform.addInput(_SeparateTransform, 0);
+		_Transform.addInput(_SeparateTransform, 1);
+		_Transform.addInput(new armory.logicnode.VectorNode(this, 1.0, 1.0, 1.0), 0);
+		_Transform.addOutputs([_SpawnObject]);
+		_SpawnObject.addInput(_Transform, 0);
+		_SpawnObject.addInput(new armory.logicnode.BooleanNode(this, true), 0);
+		_SpawnObject.addOutputs([_ApplyImpulse]);
+		var _RemoveObject = new armory.logicnode.RemoveObjectNode(this);
+		var _Sleep = new armory.logicnode.SleepNode(this);
+		_Sleep.addInput(_ApplyImpulse, 0);
+		_Sleep.addInput(new armory.logicnode.FloatNode(this, 2.000000238418579), 0);
+		_Sleep.addOutputs([_RemoveObject]);
+		_RemoveObject.addInput(_Sleep, 0);
+		_RemoveObject.addInput(_SpawnObject, 1);
+		_RemoveObject.addOutputs([new armory.logicnode.NullNode(this)]);
+		_SpawnObject.addOutputs([_ApplyImpulse, _RemoveObject]);
+		_ApplyImpulse.addInput(_SpawnObject, 0);
+		_ApplyImpulse.addInput(_SpawnObject, 1);
+		_ApplyImpulse.addInput(new armory.logicnode.VectorNode(this, 0.0, 30.0, 0.0), 0);
+		_ApplyImpulse.addInput(new armory.logicnode.BooleanNode(this, true), 0);
+		_ApplyImpulse.addOutputs([_PlaySpeaker, _Sleep]);
+		_PlaySpeaker.addInput(_ApplyImpulse, 0);
+		_PlaySpeaker.addInput(new armory.logicnode.ObjectNode(this, "pew"), 0);
+		_PlaySpeaker.addOutputs([new armory.logicnode.NullNode(this)]);
+	}
+}

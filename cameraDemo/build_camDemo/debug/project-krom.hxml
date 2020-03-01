@@ -1,16 +1,16 @@
--cp E:\ArmorySDK\Kha\Sources
--cp E:\ArmorySDK\Kha\Backends\Krom
--cp C:\Users\13175\Desktop\cameraDemo\Sources
--cp E:\ArmorySDK\armory\Sources
--cp E:\ArmorySDK\iron\Sources
--cp E:\ArmorySDK\lib\haxebullet\Sources
--cp E:/ArmorySDK/armory
--cp E:/ArmorySDK/iron
--cp E:/ArmorySDK/lib/haxebullet
+-cp /home/ajharris/Desktop/ArmorySDK/Kha/Sources
+-cp /home/ajharris/Desktop/ArmorySDK/Kha/Backends/Krom
+-cp /home/ajharris/public_html/438/438Demos/cameraDemo/Sources
+-cp /home/ajharris/Desktop/ArmorySDK/armory/Sources
+-cp /home/ajharris/Desktop/ArmorySDK/iron/Sources
+-cp /home/ajharris/Desktop/ArmorySDK/lib/haxebullet/Sources
+-cp /home/ajharris/Desktop/ArmorySDK/armory
+-cp /home/ajharris/Desktop/ArmorySDK/iron
+-cp /home/ajharris/Desktop/ArmorySDK/lib/haxebullet
 -D hxcpp_smart_strings
--D E:/ArmorySDK/armory
--D E:/ArmorySDK/iron
--D E:/ArmorySDK/lib/haxebullet
+-D /home/ajharris/Desktop/ArmorySDK/armory
+-D /home/ajharris/Desktop/ArmorySDK/iron
+-D /home/ajharris/Desktop/ArmorySDK/lib/haxebullet
 -D arm_deferred
 -D arm_csm
 -D rp_hdr
@@ -41,7 +41,7 @@
 -D kha_js
 -D kha_krom
 -D kha_krom_js
--D kha_direct3d11
+-D kha_opengl
 -D kha_g1
 -D kha_g2
 -D kha_g3
@@ -51,11 +51,11 @@
 -D kha
 -D kha_version=1810
 -D kha_project_name=camDemo
--js krom\krom.js.temp
-armory.trait.physics.bullet.RigidBody
---macro keep('armory.trait.physics.bullet.RigidBody')
-arm.node.Cameracontrol
---macro keep('arm.node.Cameracontrol')
+-js krom/krom.js.temp
+arm.node.Playercontrol
+--macro keep('arm.node.Playercontrol')
 armory.trait.physics.bullet.PhysicsWorld
 --macro keep('armory.trait.physics.bullet.PhysicsWorld')
+armory.trait.physics.bullet.RigidBody
+--macro keep('armory.trait.physics.bullet.RigidBody')
 -main Main

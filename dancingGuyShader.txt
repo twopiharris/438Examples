@@ -1,0 +1,26 @@
+// thanks to https://www.youtube.com/watch?v=xoyk_A0RSpI
+
+shader_type canvas_item;
+
+uniform float time_factor = 1.0;
+uniform vec2 amplitude = vec2(10.0, 5.0);
+
+
+void vertex(){
+	// this code runs once per vertex
+	//VERTEX += sin(TIME) * vec2(20.0, 20.0);
+	VERTEX.x += sin(TIME * time_factor + VERTEX.x + VERTEX.y) * amplitude.x;
+	VERTEX.y += cos(TIME * time_factor + VERTEX.x + VERTEX.y) * amplitude.y;
+	
+	//COLOR = vec4(1.0, 1.0, 0.0, 1.0);
+	//COLOR.a = sin(TIME);		
+}
+
+void fragment(){
+	// this code runs oce per pixel
+	float factor = sin(TIME);
+	factor = (factor / 2.0) + 0.5;
+	COLOR.r = factor;
+	COLOR.g = 0.0;
+	COLOR.b = 0.0;
+}

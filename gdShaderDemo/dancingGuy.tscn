@@ -4,17 +4,54 @@
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
-uniform float time_factor = 8.0;
-uniform vec2 amp = vec2(5.0, 5.0);
 
-void vertex(){
-	VERTEX.x += cos(TIME * time_factor + VERTEX.x + VERTEX.y) * amp.x;
-	VERTEX.y += sin(TIME * time_factor + VERTEX.x + VERTEX.y) * amp.x;
-}
+uniform vec2 amplitude = vec2(5.0, 5.0);
+uniform float time_factor = 0.5;
 
-void fragment(){
+void vertex() {
+	// simply move each vertex
+	//VERTEX+= vec2(5.0, 10.0);
 	
-}"
+	// You can also multiply vertices for scaling
+	//VERTEX.x *= 2.0;
+	//VERTEX.y *= -1.0;
+	
+	//trig functions give 0-1 values
+	//VERTEX.x *= sin(TIME);
+	//VERTEX.y *= cos(TIME);
+	
+    //add uniform parameters to modify behavior
+	//play with sin and cos
+	//VERTEX.x *= sin(TIME * time_factor) * amplitude.x;
+	//VERTEX.y *= cos(TIME * time_factor) * amplitude.y;
+	
+	// cool 'unwrapping' effect
+	//VERTEX.x *= sin(TIME * time_factor + VERTEX.y) * amplitude.x;
+	//VERTEX.y *= cos(TIME * time_factor) * amplitude.y;
+	
+	//add for a dancing effect
+	VERTEX.x += cos(TIME * time_factor + VERTEX.x + VERTEX.y) * amplitude.x;
+	VERTEX.y += sin(TIME * time_factor + VERTEX.x + VERTEX.y) * amplitude.y;
+} // end vertex shader
+
+void fragment() {
+	//make the whole thing a specific color rgba
+	COLOR = vec4(1.0, 0.0, 0.0, 1.0);
+	
+	//create a 0 to 1 value for alpha
+	//float new_alpha = sin(TIME);
+	//new_alpha = new_alpha / 2.0;
+	//new_alpha += 0.5;
+	
+	// pull colors from current image texture
+	//vec4 curr_color = texture(TEXTURE, UV);
+	//change the red tint
+	//COLOR = vec4(0.5, curr_color.g, curr_color.b, 1.0);
+	// make it darker or brighter
+	//COLOR = curr_color * 1.2;
+	//adjust alpha
+	//COLOR.a = new_alpha;
+} // end fragment shader"
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )

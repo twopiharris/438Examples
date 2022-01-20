@@ -22,7 +22,7 @@ function init(){
   var geometry = new THREE.BoxGeometry(1, 1, 1);
 
   // load an image texture
-  // var texture = new THREE.TextureLoader().load('crate.jpg');  
+  var texture = new THREE.TextureLoader().load('crate.jpg');  
   // note that loading textures on file system will trigger CORS error
   // run from a local web server.
 
@@ -32,11 +32,11 @@ function init(){
 
   var matBasic = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
   var matPhong = new THREE.MeshPhongMaterial( {color: 0x00ff00} );
-  //var matTexture = new THREE.MeshBasicMaterial( {map: texture} );
-  //var matTextureColor = new THREE.MeshBasicMaterial( {map: texture, color: 0x00CC00} );
+  var matTexture = new THREE.MeshBasicMaterial( {map: texture} );
+  var matTextureColor = new THREE.MeshBasicMaterial( {map: texture, color: 0x00CC00} );
   
   // what THREE calls a mesh we would normally call an object
-  cube = new THREE.Mesh (geometry, matBasic);
+  cube = new THREE.Mesh (geometry, matTexture);
 
   // add object to screen
   scene.add(cube);

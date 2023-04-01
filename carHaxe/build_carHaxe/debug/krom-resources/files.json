@@ -3,7 +3,7 @@
 		{
 			"name": "Material_001_mesh_frag",
 			"files": [
-				"Material_001_mesh.frag.d3d11"
+				"Material_001_mesh.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -22,124 +22,9 @@
 			"types": []
 		},
 		{
-			"name": "Material_001_mesh_vert",
-			"files": [
-				"Material_001_mesh.vert.d3d11"
-			],
-			"type": "shader",
-			"inputs": [
-				{
-					"name": "pos",
-					"type": "vec4"
-				},
-				{
-					"name": "nor",
-					"type": "vec2"
-				},
-				{
-					"name": "gl_VertexID",
-					"type": "int"
-				},
-				{
-					"name": "gl_InstanceID",
-					"type": "int"
-				}
-			],
-			"outputs": [
-				{
-					"name": "wnormal",
-					"type": "vec3"
-				}
-			],
-			"uniforms": [
-				{
-					"name": "N",
-					"type": "mat3"
-				},
-				{
-					"name": "WVP",
-					"type": "mat4"
-				}
-			],
-			"types": [
-				{
-					"name": "gl_PerVertex",
-					"members": [
-						{
-							"type": "vec4",
-							"name": "gl_Position"
-						},
-						{
-							"type": "float",
-							"name": "gl_PointSize"
-						},
-						{
-							"type": "float[]",
-							"name": "gl_ClipDistance"
-						},
-						{
-							"type": "float[]",
-							"name": "gl_CullDistance"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Material_001_shadowmap_vert",
-			"files": [
-				"Material_001_shadowmap.vert.d3d11"
-			],
-			"type": "shader",
-			"inputs": [
-				{
-					"name": "pos",
-					"type": "vec4"
-				},
-				{
-					"name": "gl_VertexID",
-					"type": "int"
-				},
-				{
-					"name": "gl_InstanceID",
-					"type": "int"
-				}
-			],
-			"outputs": [],
-			"uniforms": [
-				{
-					"name": "LWVP",
-					"type": "mat4"
-				}
-			],
-			"types": [
-				{
-					"name": "gl_PerVertex",
-					"members": [
-						{
-							"type": "vec4",
-							"name": "gl_Position"
-						},
-						{
-							"type": "float",
-							"name": "gl_PointSize"
-						},
-						{
-							"type": "float[]",
-							"name": "gl_ClipDistance"
-						},
-						{
-							"type": "float[]",
-							"name": "gl_CullDistance"
-						}
-					]
-				}
-			]
-		},
-		{
 			"name": "Material_mesh_frag",
 			"files": [
-				"Material_mesh.frag.d3d11"
+				"Material_mesh.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -160,7 +45,7 @@
 		{
 			"name": "Material_mesh_vert",
 			"files": [
-				"Material_mesh.vert.d3d11"
+				"Material_mesh.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -224,7 +109,7 @@
 		{
 			"name": "Material_shadowmap_frag",
 			"files": [
-				"Material_shadowmap.frag.d3d11"
+				"Material_shadowmap.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [],
@@ -235,7 +120,7 @@
 		{
 			"name": "Material_shadowmap_vert",
 			"files": [
-				"Material_shadowmap.vert.d3d11"
+				"Material_shadowmap.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -286,7 +171,7 @@
 		{
 			"name": "blur_edge_pass_frag",
 			"files": [
-				"blur_edge_pass.frag.d3d11"
+				"blur_edge_pass.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -320,7 +205,7 @@
 		{
 			"name": "compositor_pass_frag",
 			"files": [
-				"compositor_pass.frag.d3d11"
+				"compositor_pass.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -346,7 +231,7 @@
 		{
 			"name": "compositor_pass_vert",
 			"files": [
-				"compositor_pass.vert.d3d11"
+				"compositor_pass.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -397,7 +282,7 @@
 		{
 			"name": "deferred_light_frag",
 			"files": [
-				"deferred_light.frag.d3d11"
+				"deferred_light.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -487,7 +372,7 @@
 		{
 			"name": "painter_colored_frag",
 			"files": [
-				"painter-colored.frag.d3d11"
+				"painter-colored.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -508,7 +393,7 @@
 		{
 			"name": "painter_colored_vert",
 			"files": [
-				"painter-colored.vert.d3d11"
+				"painter-colored.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -568,7 +453,7 @@
 		{
 			"name": "painter_image_frag",
 			"files": [
-				"painter-image.frag.d3d11"
+				"painter-image.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -598,7 +483,7 @@
 		{
 			"name": "painter_image_vert",
 			"files": [
-				"painter-image.vert.d3d11"
+				"painter-image.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -666,7 +551,7 @@
 		{
 			"name": "painter_text_frag",
 			"files": [
-				"painter-text.frag.d3d11"
+				"painter-text.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -696,7 +581,7 @@
 		{
 			"name": "painter_text_vert",
 			"files": [
-				"painter-text.vert.d3d11"
+				"painter-text.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -764,7 +649,7 @@
 		{
 			"name": "painter_video_frag",
 			"files": [
-				"painter-video.frag.d3d11"
+				"painter-video.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -794,7 +679,7 @@
 		{
 			"name": "painter_video_vert",
 			"files": [
-				"painter-video.vert.d3d11"
+				"painter-video.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -862,7 +747,7 @@
 		{
 			"name": "pass_vert",
 			"files": [
-				"pass.vert.d3d11"
+				"pass.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -913,7 +798,7 @@
 		{
 			"name": "pass_viewray_vert",
 			"files": [
-				"pass_viewray.vert.d3d11"
+				"pass_viewray.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -977,7 +862,7 @@
 		{
 			"name": "smaa_blend_weight_frag",
 			"files": [
-				"smaa_blend_weight.frag.d3d11"
+				"smaa_blend_weight.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -1035,7 +920,7 @@
 		{
 			"name": "smaa_blend_weight_vert",
 			"files": [
-				"smaa_blend_weight.vert.d3d11"
+				"smaa_blend_weight.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -1111,7 +996,7 @@
 		{
 			"name": "smaa_edge_detect_frag",
 			"files": [
-				"smaa_edge_detect.frag.d3d11"
+				"smaa_edge_detect.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -1149,7 +1034,7 @@
 		{
 			"name": "smaa_edge_detect_vert",
 			"files": [
-				"smaa_edge_detect.vert.d3d11"
+				"smaa_edge_detect.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -1217,7 +1102,7 @@
 		{
 			"name": "smaa_neighborhood_blend_frag",
 			"files": [
-				"smaa_neighborhood_blend.frag.d3d11"
+				"smaa_neighborhood_blend.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -1255,7 +1140,7 @@
 		{
 			"name": "smaa_neighborhood_blend_vert",
 			"files": [
-				"smaa_neighborhood_blend.vert.d3d11"
+				"smaa_neighborhood_blend.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -1315,7 +1200,7 @@
 		{
 			"name": "ssao_pass_frag",
 			"files": [
-				"ssao_pass.frag.d3d11"
+				"ssao_pass.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -1369,7 +1254,7 @@
 		{
 			"name": "world_pass_frag",
 			"files": [
-				"world_pass.frag.d3d11"
+				"world_pass.frag.glsl"
 			],
 			"type": "shader",
 			"inputs": [
@@ -1395,7 +1280,7 @@
 		{
 			"name": "world_pass_vert",
 			"files": [
-				"world_pass.vert.d3d11"
+				"world_pass.vert.glsl"
 			],
 			"type": "shader",
 			"inputs": [

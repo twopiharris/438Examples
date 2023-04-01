@@ -52,10 +52,10 @@
 -D kha_version=1810
 -D kha_project_name=scriptDemo
 -js krom/krom.js.temp
-arm.ScriptDemo
---macro keep('arm.ScriptDemo')
 armory.trait.internal.Bridge
 --macro keep('armory.trait.internal.Bridge')
+arm.ScriptDemo
+--macro keep('arm.ScriptDemo')
 armory.trait.internal.DebugConsole
 --macro keep('armory.trait.internal.DebugConsole')
 --times

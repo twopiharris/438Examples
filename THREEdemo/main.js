@@ -36,7 +36,7 @@ function init(){
   var matTextureColor = new THREE.MeshBasicMaterial( {map: texture, color: 0x00CC00} );
   
   // what THREE calls a mesh we would normally call an object
-  cube = new THREE.Mesh (geometry, matTexture);
+  cube = new THREE.Mesh (geometry, matTextureColor);
 
   // add object to screen
   scene.add(cube);

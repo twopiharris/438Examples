@@ -2,17 +2,16 @@
 let project = new Project('carHaxe');
 
 project.addSources('Sources');
-project.addLibrary("E:/ArmorySDK/armory");
-project.addLibrary("E:/ArmorySDK/iron");
+project.addLibrary("/home/ajharris/Desktop/ArmorySDK/armory");
+project.addLibrary("/home/ajharris/Desktop/ArmorySDK/iron");
 project.addParameter('arm.CarTrait');
 project.addParameter("--macro keep('arm.CarTrait')");
 project.addShaders("build_carHaxe/compiled/Shaders/*.glsl", { noembed: false});
-project.addShaders("build_carHaxe/compiled/Hlsl/*.glsl", { noprocessing: true, noembed: false });
 project.addAssets("build_carHaxe/compiled/Assets/**", { notinlist: true });
 project.addAssets("build_carHaxe/compiled/Shaders/*.arm", { notinlist: true });
-project.addAssets("E:/ArmorySDK/armory/Assets/brdf.png", { notinlist: true });
-project.addAssets("E:/ArmorySDK/armory/Assets/smaa_area.png", { notinlist: true });
-project.addAssets("E:/ArmorySDK/armory/Assets/smaa_search.png", { notinlist: true });
+project.addAssets("/home/ajharris/Desktop/ArmorySDK/armory/Assets/brdf.png", { notinlist: true });
+project.addAssets("/home/ajharris/Desktop/ArmorySDK/armory/Assets/smaa_area.png", { notinlist: true });
+project.addAssets("/home/ajharris/Desktop/ArmorySDK/armory/Assets/smaa_search.png", { notinlist: true });
 project.addDefine('arm_deferred');
 project.addDefine('arm_csm');
 project.addDefine('rp_hdr');
